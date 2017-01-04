@@ -73,6 +73,7 @@ var extendGridMenu = {
         }
         // set ID of menu entry
         pMenuOptions.id = 'ig-menu-item-' + lMenuItemCount;
+
         // Logging
         apex.debug.log('extendGridMenu.addGridMenuEntry - lRegionId', lRegionId);
         apex.debug.log('extendGridMenu.addGridMenuEntry - lRowActionMenu$', lRowActionMenu$);
