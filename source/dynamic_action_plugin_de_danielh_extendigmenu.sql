@@ -388,7 +388,9 @@ wwv_flow_api.create_plugin_attribute(
 ,p_default_value=>'ITEM'
 ,p_is_translatable=>false
 ,p_lov_type=>'STATIC'
-,p_help_text=>'Choose if the Primary Key Value of IG Row is returned into a Item or via a Custom Event which gets triggered'
+,p_help_text=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'Choose if the Primary Key Value of IG Row is returned into a Item or via a Custom Event which gets triggered.<br>',
+'Note: If you have multiple Primary Keys in the IG than an Array is returned. E.g. ["123456","654321"]'))
 );
 wwv_flow_api.create_plugin_attr_value(
  p_id=>wwv_flow_api.id(23455935098493416)
@@ -410,7 +412,7 @@ wwv_flow_api.create_plugin_attribute(
 ,p_attribute_scope=>'COMPONENT'
 ,p_attribute_sequence=>4
 ,p_display_sequence=>40
-,p_prompt=>'Item (PK Value)'
+,p_prompt=>'Item'
 ,p_attribute_type=>'PAGE ITEM'
 ,p_is_required=>true
 ,p_is_translatable=>false
@@ -420,7 +422,8 @@ wwv_flow_api.create_plugin_attribute(
 ,p_depending_on_expression=>'ITEM'
 ,p_help_text=>wwv_flow_string.join(wwv_flow_t_varchar2(
 'Item which will get the Value of the Primary Key Column of Interactive Grid.<br>',
-'After that you can react on the Change Event of the Item and can do things with that.'))
+'After that you can react on the Change Event of the Item and can do things with that.<br>',
+'Note: If you have multiple Primary Keys in the IG than an Array is returned. E.g. ["123456","654321"]'))
 );
 wwv_flow_api.create_plugin_attribute(
  p_id=>wwv_flow_api.id(23457350788507571)
@@ -443,7 +446,9 @@ wwv_flow_api.create_plugin_attribute(
 '<pre>',
 'var pkValue = this.data;',
 '</pre>'))
-,p_help_text=>'This will trigger a Custom Event with the Name of this Attribute. So you can react with other Dynamic Actions to this Event.'
+,p_help_text=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'This will trigger a Custom Event with the Name of this Attribute. So you can react with other Dynamic Actions to this Event.<br>',
+'Note: If you have multiple Primary Keys in the IG than an Array is returned. E.g. ["123456","654321"]'))
 );
 wwv_flow_api.create_plugin_attribute(
  p_id=>wwv_flow_api.id(23432129601020279)
