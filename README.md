@@ -8,6 +8,8 @@ Dynamic Action Plugin to extend the Standard Row Action Menu (Burger Button) in 
 
 ## Changelog
 
+#### 1.1.0 - Add possibility to have column based conditions to hide or disable menu entries. Which adds row level control to the hide/disable functions / changed JQuery methods to native APEX Interactive Grid methods
+
 #### 1.0.0 - Initial Release
 
 
@@ -26,8 +28,16 @@ The Plugin Settings are highly customizable and you can change:
 - **Item** - Item which will get the Value of the Primary Key Column of Interactive Grid. After that you can react on the Change Event of the Item and can do things with that.
 - **Custom Event** - This will trigger a Custom Event with the Name of this Attribute. So you can react with other Dynamic Actions to this Event. **this.data** holds the PK Value of the Interactive Grid Row (Selection Type: Interactive Grid Region)
 - **Render Menu Separator** - Choose if a *Separator* is rendered between the Menu Entries. It is simply a horizontal Line.
+- **Hide Condition Type** - Choose whether the Hide Condition is
+  - **General**: All IG rows have same condition
+  - **Column based**: Have an condition column to have row level control if an menu item is hidden or not
 - **Hide Condition** - Condition to Hide the Menu Entry. Item Substitution is supported: &P1_ITEM. (true/false)
+- **Hide Condition Column** - Column Name of the IG column which holds the hide condition information. Column return value should be (true/false)
+- **Disable Condition Type** - Choose whether the Disable Condition is
+  - **General**: All IG rows have same condition
+  - **Column based**: Have an condition column to have row level control if an menu item is disabled or not
 - **Disable Condition** - Condition to Disable the Menu Entry. Item Substitution is supported: &P1_ITEM. (true/false)
+- **Disable Condition Column** - Column Name of the IG column which holds the disable condition information. Column return value should be (true/false)
 
 
 ## How to use
