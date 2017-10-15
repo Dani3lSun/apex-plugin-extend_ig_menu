@@ -8,6 +8,8 @@ Dynamic Action Plugin to extend the Standard Row Action Menu (Burger Button) in 
 
 ## Changelog
 
+#### 1.1.1 - Better debug logging, some code improvements
+
 #### 1.1.0 - Add possibility to have column based conditions to hide or disable menu entries. Which adds row level control to the hide/disable functions / changed JQuery methods to native APEX Interactive Grid methods
 
 #### 1.0.0 - Initial Release

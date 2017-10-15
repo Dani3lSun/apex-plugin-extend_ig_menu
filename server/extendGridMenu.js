@@ -1,6 +1,6 @@
 // Extend IG Menu
 // Author: Daniel Hochleitner
-// Version: 1.1.0
+// Version: 1.1.1
 
 // global namespace
 var extendGridMenu = {
@@ -73,7 +73,6 @@ var extendGridMenu = {
     }
     // set ID of menu entry
     pMenuOptions.id = 'ig-menu-item-' + menuItemCount;
-
     // Logging
     apex.debug.log('extendGridMenu.addGridMenuEntry - rowActionMenu$', rowActionMenu$);
     apex.debug.log('extendGridMenu.addGridMenuEntry - menuItemCount', menuItemCount);
@@ -145,7 +144,7 @@ var extendGridMenu = {
 
 
     // build menu options object
-    var vMenuOptions = {
+    var menuOptions = {
       icon: menuIcon,
       id: 'ig-menu-item',
       label: menuLabel,
@@ -160,7 +159,7 @@ var extendGridMenu = {
     };
 
     // add menu item
-    extendGridMenu.addGridMenuEntry(gridObject, vMenuOptions, renderSeparator);
+    extendGridMenu.addGridMenuEntry(gridObject, menuOptions, renderSeparator);
 
     // Hide / Disable Column Mode (single Rows, Condition Column based)
     if (hideConditionType == 'COLUMN' || disableConditionType == 'COLUMN') {
@@ -168,31 +167,37 @@ var extendGridMenu = {
       var clickedMenuButton;
       $('#' + regionId).click('button[data-menu="' + regionId + '_ig_row_actions_menu"]', function(event) {
         clickedMenuButton = event.target;
+        // Logging
+        apex.debug.log('menu button click - event.target', clickedMenuButton);
       });
       // open action menu event
       grid.rowActionMenu$.on('menubeforeopen', function(event, ui) {
+        // get context record of row
+        var record = grid.getContextRecord(clickedMenuButton)[0];
+        gridObject.record = record;
         // hide
         if (hideConditionType == 'COLUMN') {
-          var record = grid.getContextRecord(clickedMenuButton)[0];
-          gridObject.record = record;
           var isHidden = extendGridMenu.parseBoolean(model.getValue(record, hideConditionColumn)) || false;
           $.grep(ui.menu.items, function(e) {
-            if (e.id == vMenuOptions.id) {
+            if (e.id == menuOptions.id) {
               e.hide = isHidden;
             }
           });
         }
         // disable
         if (disableConditionType == 'COLUMN') {
-          var record = grid.getContextRecord(clickedMenuButton)[0];
-          gridObject.record = record;
           var isDisabled = extendGridMenu.parseBoolean(model.getValue(record, disableConditionColumn)) || false;
           $.grep(ui.menu.items, function(e) {
-            if (e.id == vMenuOptions.id) {
+            if (e.id == menuOptions.id) {
               e.disabled = isDisabled;
             }
           });
         }
+        // Logging
+        apex.debug.log('grid.rowActionMenu$ menubeforeopen - this', this);
+        apex.debug.log('grid.rowActionMenu$ menubeforeopen - event', event);
+        apex.debug.log('grid.rowActionMenu$ menubeforeopen - ui', ui);
+        apex.debug.log('grid.rowActionMenu$ menubeforeopen - record', record);
       });
     }
   }
