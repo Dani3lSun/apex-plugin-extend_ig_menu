@@ -1,6 +1,6 @@
 /*-------------------------------------
  * Extend IG Menu functions
- * Version: 1.1.1 (15.10.2017)
+ * Version: 1.1.2 (07.12.2017)
  * Author:  Daniel Hochleitner
  *-------------------------------------
 */

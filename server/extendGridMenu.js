@@ -1,6 +1,6 @@
 // Extend IG Menu
 // Author: Daniel Hochleitner
-// Version: 1.1.1
+// Version: 1.1.2
 
 // global namespace
 var extendGridMenu = {
@@ -159,7 +159,14 @@ var extendGridMenu = {
     };
 
     // add menu item
+    // on init
     extendGridMenu.addGridMenuEntry(gridObject, menuOptions, renderSeparator);
+    // onviewchange add again
+    $('#' + regionId).on('interactivegridviewchange', function(event, data) {
+      if (data.view === "grid" && data.created) {
+        extendGridMenu.addGridMenuEntry(gridObject, menuOptions, renderSeparator);
+      }
+    });
 
     // Hide / Disable Column Mode (single Rows, Condition Column based)
     if (hideConditionType == 'COLUMN' || disableConditionType == 'COLUMN') {
