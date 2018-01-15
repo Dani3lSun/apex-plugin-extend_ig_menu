@@ -1,6 +1,6 @@
 // Extend IG Menu
 // Author: Daniel Hochleitner
-// Version: 1.1.2
+// Version: 1.1.3
 
 // global namespace
 var extendGridMenu = {
@@ -172,13 +172,13 @@ var extendGridMenu = {
     if (hideConditionType == 'COLUMN' || disableConditionType == 'COLUMN') {
       // save menu button, will need it for grid.getContextRecord
       var clickedMenuButton;
-      $('#' + regionId).click('button[data-menu="' + regionId + '_ig_row_actions_menu"]', function(event) {
+      $('#' + regionId).find('.a-IG-body').click('button[data-menu="' + regionId + '_ig_row_actions_menu"]', function(event) {
         clickedMenuButton = event.target;
         // Logging
         apex.debug.log('menu button click - event.target', clickedMenuButton);
       });
       // open action menu event
-      grid.rowActionMenu$.on('menubeforeopen', function(event, ui) {
+      $('body').on('menubeforeopen', '#' + grid.rowActionMenu$[0].id, function(event, ui) {
         // get context record of row
         var record = grid.getContextRecord(clickedMenuButton)[0];
         gridObject.record = record;

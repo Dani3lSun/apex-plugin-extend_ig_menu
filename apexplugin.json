@@ -1,6 +1,6 @@
 {
   "name" : "Extend IG Menu",
-  "version" : "1.1.2",
+  "version" : "1.1.3",
   "description" : "Dynamic Action Plugin to extend the Standard Row Action Menu (Burger Button) in Interactive Grid (APEX 5.1) with custom Menu Entries.",
   "keywords" : ["extend","menu","list","ig","interactive","grid"],
   "homepage" : "https://github.com/Dani3lSun/apex-plugin-extend_ig_menu",

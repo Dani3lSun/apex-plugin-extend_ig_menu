@@ -8,7 +8,9 @@ Dynamic Action Plugin to extend the Standard Row Action Menu (Burger Button) in 
 
 ## Changelog
 
-#### 1.1.2 - fixed bug, there menu entries disappeared when grid view changed
+#### 1.1.3 - fixed bug, where column based condition wasn´t refreshed after grid view changed
+
+#### 1.1.2 - fixed bug, where menu entries disappeared when grid view changed
 
 #### 1.1.1 - Better debug logging, some code improvements
 
